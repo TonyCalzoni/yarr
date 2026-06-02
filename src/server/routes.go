@@ -34,7 +34,7 @@ func (s *Server) handler() http.Handler {
 			BasePath: s.BasePath,
 			Username: s.Username,
 			Password: s.Password,
-			Public:   []string{"/static", "/fever", "/manifest.json"},
+			Public:   []string{"/static", "/manifest.json"},
 			DB:       s.db,
 		}
 		r.Use(a.Handler)
@@ -58,7 +58,6 @@ func (s *Server) handler() http.Handler {
 	r.For("/opml/export", s.handleOPMLExport)
 	r.For("/page", s.handlePageCrawl)
 	r.For("/logout", s.handleLogout)
-	r.For("/fever/", s.handleFever)
 
 	return r
 }
